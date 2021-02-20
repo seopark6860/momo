@@ -1,74 +1,94 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seopark <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 04:56:24 by seopark           #+#    #+#             */
+/*   Updated: 2021/02/21 05:54:19 by seopark          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putchar(char c){
-        write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
-void ft_nputchar1(int max_row, int col, int max_col){	// 첫번째 행
-        int r;
-        r = 0;
-
-        while(r < max_row){
-                if(r != 0 && r != max_row-1){
-                        ft_putchar('B');
-                } 
-				else {
-                        ft_putchar('A');
-                }
-                r++;
-        }
-}
-
-void ft_nputchar2(int max_row, int col){
-        int x;
-        x = 0;
-
-        while(x < max_row){
-
-				if(x!=0 &&  x != max_row-1){
-					ft_putchar(' ');
-				}
-				else{
-                        ft_putchar('B');
-                }
-                x++;
-        }
-}
-
-void ft_nputchar3(int max_row, int max_col, int col){	//마지막 행
-        int r;
-        r = 0;
-
-        while(r < max_row){
-                if(r != 0 && r != max_row-1){
-                        ft_putchar('B');
-                } else {
-                        ft_putchar('C');
-                }
-                r++;
-        }
-}
-
-void rush(int row, int col){
-        int c;
-        c = 0;
-
-        while(c < col){
-                if(c == 0){
-                	ft_nputchar1(row, col, c);
-				}
-                else if(c == col-1){
-                        ft_nputchar3(row, col, c);
-                } else {
-                        ft_nputchar2(row, c);
-                }
-                c++;
-                ft_putchar('\n');
-		}
-}
-
-int main()
+void	first_row(int max_row)
 {
-        rush(5, 3);
-        return (0);
+	int row;
+
+	row = 0;
+	while (row < max_row)
+	{
+		if (row == 0 || row == max_row - 1)
+		{
+			ft_putchar('A');
+		}
+		else
+		{
+			ft_putchar('B');
+		}
+		row++;
+	}
+}
+
+void	mid_row(int max_row)
+{
+	int row;
+
+	row = 0;
+	while (row < max_row)
+	{
+		if (row == 0 || row == max_row - 1)
+		{
+			ft_putchar('B');
+		}
+		else
+		{
+			ft_putchar(' ');
+		}
+		row++;
+	}
+}
+
+void	last_row(int max_row)
+{
+	int row;
+
+	row = 0;
+	while (row < max_row)
+	{
+		if (row == 0 || row == max_row - 1)
+		{
+			ft_putchar('C');
+		}
+		else
+		{
+			ft_putchar('B');
+		}
+		row++;
+	}
+}
+
+void	rush(int max_row, int max_col)
+{
+	int col;
+
+	col = 0;
+	while (col < max_col)
+	{
+		if (col == 0)
+		{
+			first_row(max_row);
+		}
+		else if (col == max_col - 1)
+		{
+			last_row(max_row);
+		}
+		else
+		{
+			mid_row(max_row);
+		}
+		col++;
+		ft_putchar('\n');
+	}
 }

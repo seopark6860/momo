@@ -6,22 +6,24 @@
 /*   By: seopark <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 15:44:17 by seopark           #+#    #+#             */
-/*   Updated: 2021/02/20 18:18:16 by seopark          ###   ########.fr       */
+/*   Updated: 2021/02/21 05:44:36 by seopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-void	ft_nputchar1(int max_row){
+void	up_down_row(int max_row)
+{
 	int	row;
 
 	row = 0;
-	while (row < max_row){
+	while (row < max_row)
+	{
 		if (row == 0 || row == max_row - 1)
 		{
 			ft_putchar('o');
-		} 
-		else 
+		}
+		else
 		{
 			ft_putchar('-');
 		}
@@ -29,17 +31,18 @@ void	ft_nputchar1(int max_row){
 	}
 }
 
-void	ft_nputchar2(int max_row){
+void	mid_row(int max_row)
+{
 	int	row;
 
 	row = 0;
-    while (row < max_row)
+	while (row < max_row)
 	{
 		if (row == 0 || row == max_row - 1)
 		{
 			ft_putchar('|');
 		}
-	   	else 
+		else
 		{
 			ft_putchar(' ');
 		}
@@ -51,16 +54,16 @@ void	rush(int max_row, int max_col)
 {
 	int col;
 
-    col = 0;
-    while (col < max_col)
+	col = 0;
+	while (col < max_col)
 	{
-    	if (col == 0 || col == max_col - 1)
+		if (col == 0 || col == max_col - 1)
 		{
-			ft_nputchar1(max_row);
-	   	}
-	   	else 
+			up_down_row(max_row);
+		}
+		else
 		{
-			ft_nputchar2(max_row);
+			mid_row(max_row);
 		}
 		col++;
 		ft_putchar('\n');

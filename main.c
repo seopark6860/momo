@@ -6,19 +6,20 @@
 /*   By: seopark <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 15:13:32 by seopark           #+#    #+#             */
-/*   Updated: 2021/02/20 18:18:29 by seopark          ###   ########.fr       */
+/*   Updated: 2021/02/21 05:53:35 by seopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
+
 void	rush(int x, int y);
 
 int		main(void)
 {
-	rush(3, 4);
-	write(1,"\n",1);
-	rush(1, 1);
-	write(1,"\n",1);
-	rush(1, 3);
-	
+	rush(4, 5);
+	write(1, "\n", 1);
+	rush(2, 6);
+	write(1, "\n", 1);
+	rush(6, 2);
 	return (0);
 }

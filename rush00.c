@@ -55,7 +55,7 @@ void	rush(int max_row, int max_col)
 	int col;
 
 	col = 0;
-	while (col < max_col)
+	while (col < max_col && max_col > 0 && max_row > 0)
 	{
 		if (col == 0 || col == max_col - 1)
 		{
